@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimal Overlay Finder</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+
+    <div class="main_titles center">
+        <h1>Optimal Overlay Finder</h1>
+        <h2>For Readable Text on a Background Image</h2><br>
+        <h2><i>by <a href="https://codepen.io/yaphi1" target="_blank">Yaphi</a></i></h2>
+    </div>
+
+    <div class="content_width content_grid">
+
+        <div class="choose_image">
+            <h3>Choose an image:</h3>
+            <div class="img_btns">
+                <button class="standard_btn sample_img_btn"
+                    data-url="https://assets.codepen.io/246719/blue-rose-pexels-photo-1482972.jpeg?width=1034&height=689&format=auto">Flower</button>
+                <button class="standard_btn sample_img_btn"
+                    data-url="https://assets.codepen.io/246719/snow-pexels-photo-691668.jpeg?width=1012&height=675&fit=scale-down&format=auto">Snow</button>
+                <button id="custom_img_btn" class="standard_btn sample_img_btn hide" data-url="">Custom</button>
+                <label class="upload_label standard_btn">
+                    Upload
+                    <input type="file" id="uploader">
+                </label>
+            </div>
+        </div>
+
+        <div class="enter_text">
+            <h3>Enter your text:</h3>
+            <input id="foreground_text_input" type="text" name="" placeholder="Example text goes here">
+        </div>
+
+    </div>
+
+    <div class="content_width color_choice_title">
+        <h3>Choose your colors:</h3>
+    </div>
+
+    <div class="content_width content_grid">
+        <label class="color_picker">
+            Overlay color
+            <span class="color_preview_holder">
+                <span class="color_preview" id="overlay_color_preview"></span>
+            </span>
+            <input id="overlay_color_input" type="color" value="#000000">
+        </label>
+        <label class="color_picker">
+            Text color
+            <span class="color_preview_holder">
+                <span class="color_preview" id="text_color_preview"></span>
+            </span>
+            <input id="text_color_input" type="color" value="#ffffff">
+        </label>
+
+    </div>
+
+    <div class="image_showcase_section content_width content_grid">
+
+        <div class="image_showcase before">
+            <h3>Before:</h3>
+            <div class="image_holder">
+                <div class="bg_image_container">
+                    <img src="" alt="" class="bg_image js_bg_image">
+                </div>
+                <div class="foreground_text_container">
+                    <div class="foreground_text"></div>
+                </div>
+            </div>
+        </div>
+        <div class="image_showcase after">
+            <h3>After:</h3>
+            <div class="image_holder">
+                <div class="bg_image_container">
+                    <img src="" alt="" class="bg_image js_bg_image">
+                </div>
+                <div id="overlay"></div>
+                <div class="foreground_text_container">
+                    <div class="foreground_text"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="output_area center">
+        <div class="optimal_opacity_headline">Optimal overlay opacity:</div>
+        <div class="optimal_opacity_value" id="optimal_opacity_output_container"></div>
+        <div id="no_solution" class="hide">
+            <div class="no_solution_heading">
+                No Solution
+            </div>
+            <div class="no_solution_explanation">
+                If your text doesn't have enough contrast with your image or your overlay color, there won't be an
+                optimal solution. For example, there's no opacity that will make blue text show up on an overlay that's
+                the same shade of blue.
+            </div>
+        </div>
+    </div>
+
+    <div style="display:none;">
+        <img id="original_image" class="js_bg_image" src="" alt="" crossorigin="*">
+    </div>
+
+    <div class="debug">
+        <h3>Original image placed in a canvas:</h3>
+        <canvas id="image_canvas"></canvas>
+    </div>
+
+
+
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
